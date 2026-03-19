@@ -98,9 +98,11 @@ class BuilderViewModel @Inject constructor(
 
     fun playSequence() {
         val seq = _sequence.value
+        if (seq.blocks.isEmpty()) return
+        // stop any running sequence, then upload — server auto-starts on SequenceLoaded
+        sendSequence.stop()
         sendSequence.uploadSequence(seq)
-        sendSequence.start()
-        persistAsync()   // save as current so it reloads on next launch
+        persistAsync()
     }
 
     fun stopSequence() = sendSequence.stop()
