@@ -1,0 +1,3 @@
+<resources>
+    <style name="Theme.JDS6600Sequencer" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
